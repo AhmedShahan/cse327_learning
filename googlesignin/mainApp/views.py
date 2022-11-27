@@ -6,9 +6,13 @@ def login(request):
 
 @login_required
 def home(request):
-    name=request.user.username
+    fname=request.user.first_name
+    lname=request.user.last_name
+    email=request.user.email
     contex={
-        'name':name
+        'fname':fname,
+        'lname':lname,
+        'email':email
     }
     return render(request,'home.html',contex)
 

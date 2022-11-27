@@ -6,7 +6,11 @@ def login(request):
 
 @login_required
 def home(request):
-    return render(request,'home.html')
+    name=request.user.username
+    contex={
+        'name':name
+    }
+    return render(request,'home.html',contex)
 
 def logout(request):
     return render(request,'login.html')
